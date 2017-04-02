@@ -26,7 +26,6 @@
         function filtration($variable){
             $variable = htmlentities($variable , ENT_QUOTES, "UTF-8");
             //filtrujemy, konwertujemy na encję zabezpieczajac przed tak zwanym wstrzykiwaniem mysql, ENT_QUOTES nakazuje różnież zmianę apostrofów i cudzysłowiów
-            $variable =
             return $variable;
         }
 
