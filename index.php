@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    if (isset($_SESSION['logged']) && $_SESSION['logged']==true){
+        header('Location: panel.php');
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -12,7 +20,13 @@
            <div class="forms">
                <div class="form-body well noradius noshadow">
                    <h2 class="border-bottom">Jestem klientem</h2>
-                   <form name="login" id="login" method="post" class="clearfix">
+
+                   <?php
+                        if (isset($_SESSION['error'])) echo $_SESSION['error'];
+                   ?>
+
+
+                   <form name="login" id="login" method="post" class="clearfix" action="forms/login.php">
                        <div class="form-group">
                            <label class="control-label required" for="login_login">Login</label>
                            <input type="text" name="login" placeholder="Twój login" class="" id="login_login" value="">
@@ -23,6 +37,7 @@
                        </div>
                        <button type="submit" class="btn btn-primary pull-right">Zaloguj</button>
                        <div class="btn btn-link push-form pull-left nopadding">Chcę założyć konto</div>
+
                    </form>
                </div>
                <div class="form-body well noradius noshadow">
@@ -42,6 +57,7 @@
                        </div>
                        <button type="submit" class="btn btn-primary pull-right">Stwórz konto</button>
                        <div class="btn btn-link push-form pull-left nopadding">Mam już konto</div>
+
                    </form>
                </div>
            </div>
