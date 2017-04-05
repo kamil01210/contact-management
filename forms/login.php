@@ -30,14 +30,13 @@
         }
 
         $login = filtration($_POST['login']);
-        $password = filtration($_POST['password']);
+        $password = $_POST['password'];
 
         //$sql = "SELECT * FROM User WHERE login='$login' AND password ='$password'";
 
         if ($result = @$connection->query(
-            sprintf("SELECT * FROM User WHERE login='%s' AND password ='%s'", //sprintf pilnuje typu danych, %s wskazuje gdzie będziemy wkładać zmienne 's' oznacza typ zmiennej czyli string w tym przypadku
-            mysqli_real_escape_string($connection, $login), // pierwszy argument
-            mysqli_real_escape_string($connection, $password) // drugi argument
+            sprintf("SELECT * FROM User WHERE login='%s'", //sprintf pilnuje typu danych, %s wskazuje gdzie będziemy wkładać zmienne 's' oznacza typ zmiennej czyli string w tym przypadku
+            mysqli_real_escape_string($connection, $login) // pierwszy argument
             ))){
 
             /*
@@ -48,30 +47,31 @@
             $how_many_users = $result->num_rows;
 
             if ($how_many_users > 0){
-                $_SESSION['logged'] = true;
-
                 $row = $result->fetch_assoc(); //tablica asocjacyjna
-                $_SESSION['id'] = $row['id'];
-                $_SESSION['user'] = $row['login'];
+
+                if (password_verify($password, $row['password'])){
+                    $_SESSION['logged'] = true;
+                    $_SESSION['id'] = $row['id'];
+                    $_SESSION['user'] = $row['login'];
 
 //                echo $_SESSION['user'];
 
-                unset($_SESSION['error']);
-                $result->free_result();
-                header('Location: ../panel.php');
+                    unset($_SESSION['error']);
+                    $result->free_result();
+                    header('Location: ../panel.php');
+                }
+                else {
+                    $_SESSION['error'] = 'Niepoprawne login lub hasło';
 
-
+                    header('Location: ../index.php');
+                }
             }
             else {
-                $_SESSION['error'] = '<div class="alert-danger clearfix mbt30 mtp30">Niepoprawne login lub hasło</div>';
+                $_SESSION['error'] = 'Niepoprawne login lub hasło';
 
                 header('Location: ../index.php');
-
             }
         }
-
         $connection->close();
     }
-
-
 ?>
