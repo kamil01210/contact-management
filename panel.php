@@ -31,6 +31,40 @@
             </div>
         </div>
     </div>
+
+
+    <div class="form-container">
+        <div class="form">
+            <div class="form-body well noradius noshadow">
+                <h2 class="border-bottom">Dodaj kontakt</h2>
+
+
+                <form name="add_contact" method="post" class="clearfix" action="forms/add_contact.php">
+                    <div class="form-group">
+                        <label class="control-label required" for="add_contact">Kontak</label>
+                        <input type="text" name="add_contact" placeholder="Nazwa kontaktu" class="" value="">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label required" for="add_contact">Kontak</label>
+                        <input type="text" name="add_contact" placeholder="Nazwa kontaktu" class="" value="">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label required" for="add_contact">Kontak</label>
+                        <input type="text" name="add_contact" placeholder="Nazwa kontaktu" class="" value="">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label required" for="add_contact">Kontak</label>
+                        <input type="text" name="add_contact" placeholder="Nazwa kontaktu" class="" value="">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary pull-right">Zaloguj</button>
+                    <div class="btn btn-link push-form pull-left nopadding">Chcę założyć konto</div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="js/less.js"></script>
