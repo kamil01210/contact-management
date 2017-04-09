@@ -184,16 +184,22 @@ body {
 }
 
 
-.btn {
+.btn, .btn:focus, .btn:active{
   .radius(0);
   padding: 10px 25px;
   text-transform: uppercase;
   font-family: @oswald;
   letter-spacing: 0.03em;
 
+
   &.btn-primary {
     background-color: @primary-color;
     border-color: @primary-color;
+
+    &.btn-primary:focus, .btn-primary:active {
+      outline: 5px auto @primary-color;
+      outline-offset: -2px;
+    }
   }
 }
 
@@ -202,4 +208,41 @@ body {
   box-shadow: none;
   -webkit-box-shadow: none;
   outline: none;
+}
+
+
+.more-hidden {
+  max-height: 0;
+  overflow: hidden;
+  .transition(all .8s ease-in-out);
+}
+
+.more-visibility {
+  max-height: 300px;
+  overflow: hidden;
+  .transition(all .8s ease-in-out);
+}
+
+.modal-add-contact {
+
+  .modal-content {
+    .radius(0);
+  }
+
+  .modal-body {
+    padding: 0;
+
+    .form-container {
+      margin: 0;
+      width: 100%;
+    }
+
+    .form-body {
+      margin: 0;
+    }
+  }
+
+  .modal-header {
+    border-bottom: none;
+  }
 }

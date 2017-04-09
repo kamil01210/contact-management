@@ -5,22 +5,16 @@
         header('Location: panel.php');
         exit();
     }
+
+
+    include_once 'header.php';
 ?>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    <link rel="stylesheet/less" type="text/css" href="css/style.less" />
-</head>
 <body>
     <div class="content">
        <div class="form-container">
            <div class="forms">
                <div class="form-body well noradius noshadow">
-                   <h2 class="border-bottom">Jestem klientem</h2>
+                   <h2 class="border-bottom">Jestem użytkownikiem</h2>
 
 
                    <?php
@@ -126,9 +120,7 @@
            </div>
        </div>
     </div>
-    <script src="js/less.js"></script>
-    <script src="js/jquery-2.1.1.min.js"></script>
-    <script src="js/script.js"></script>
+    <?php include_once 'footer.php'?>
 
 </body>
 </html>

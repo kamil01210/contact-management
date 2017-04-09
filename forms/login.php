@@ -61,13 +61,13 @@
                     header('Location: ../panel.php');
                 }
                 else {
-                    $_SESSION['error'] = 'Niepoprawne login lub hasło';
+                    $_SESSION['error'] = 'Niepoprawny login lub hasło';
 
                     header('Location: ../index.php');
                 }
             }
             else {
-                $_SESSION['error'] = 'Niepoprawne login lub hasło';
+                $_SESSION['error'] = 'Niepoprawny login lub hasło';
 
                 header('Location: ../index.php');
             }
