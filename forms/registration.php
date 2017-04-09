@@ -56,18 +56,18 @@
 
 
     //reCAPTACH
-    $secret_key = '6LfPRBsUAAAAAJGksJAqvW-Uwml83Sgs17CjbuR2';
-
-    $recaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret_key.'&response='.$_POST['g-recaptcha-response']);
-    //zmienna metoda get "?"
-    //zmienna rechapta zostanie zwrócona w formacie json
-
-    $recaptcha = json_decode($recaptcha);
-
-    if (!($recaptcha->success)){
-        $validation = false;
-        $_SESSION['error_recaptcha'] = "Potwierdź, że nie jesteś botem";
-    }
+//    $secret_key = '6LfPRBsUAAAAAJGksJAqvW-Uwml83Sgs17CjbuR2';
+//
+//    $recaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret_key.'&response='.$_POST['g-recaptcha-response']);
+//    //zmienna metoda get "?"
+//    //zmienna rechapta zostanie zwrócona w formacie json
+//
+//    $recaptcha = json_decode($recaptcha);
+//
+//    if (!($recaptcha->success)){
+//        $validation = false;
+//        $_SESSION['error_recaptcha'] = "Potwierdź, że nie jesteś botem";
+//    }
 
     require_once "connect.php";
 
