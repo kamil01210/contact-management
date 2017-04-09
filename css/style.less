@@ -11,6 +11,7 @@
 body {
   font-family: @sintony;
 }
+
 .nomargin {
   margin: 0;
 }
@@ -34,9 +35,11 @@ body {
 .mbt40 {
   margin-bottom: 40px;
 }
+
 .mbt50 {
   margin-bottom: 50px;
 }
+
 .mbt60 {
   margin-bottom: 60px;
 }
@@ -173,7 +176,6 @@ body {
   border: none;
 }
 
-
 .noradius {
   .radius(0);
 }
@@ -183,14 +185,12 @@ body {
   background-color: transparent;
 }
 
-
 .btn, .btn:focus, .btn:active{
   .radius(0);
   padding: 10px 25px;
   text-transform: uppercase;
   font-family: @oswald;
   letter-spacing: 0.03em;
-
 
   &.btn-primary {
     background-color: @primary-color;
@@ -209,7 +209,6 @@ body {
   -webkit-box-shadow: none;
   outline: none;
 }
-
 
 .more-hidden {
   max-height: 0;
@@ -245,4 +244,8 @@ body {
   .modal-header {
     border-bottom: none;
   }
+}
+
+.alert-danger, .alert-info {
+  padding: 10px;
 }

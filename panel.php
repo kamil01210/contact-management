@@ -10,6 +10,12 @@
 ?>
 <body>
 <div class="container">
+    <?php
+    if (isset($_SESSION['success_add'])) {
+        echo '<div class="alert-info clearfix mbt30 mtp30">'.$_SESSION['success_add'].'</div>';
+        unset($_SESSION['success_add']);
+    }
+    ?>
     <div class="row">
         <div class="col-md-12 mtp40">
             <button type="button" class="btn btn-primary pull-left" data-toggle="modal" data-target="#add_contact">
@@ -45,10 +51,16 @@
                                 <h2 class="border-bottom">Dodaj kontakt</h2>
 
 
-                                <form name="contact_contact" method="post" class="clearfix" action="forms/contact_contact.php">
+                                <form name="contact_contact" method="post" class="clearfix" action="forms/add_contact.php">
                                     <div class="form-group">
                                         <label class="control-label required" for="contact_firstname">Imię</label>
                                         <input type="text" name="contact_firstname" placeholder="Podaj imię" class="" value="">
+                                        <?php
+                                        if (isset($_SESSION['error_contact_firstname'])) {
+                                            echo '<div class="alert-danger clearfix mbt30 mtp30">'.$_SESSION['error_contact_firstname'].'</div>';
+                                            unset($_SESSION['error_contact_firstname']);
+                                        }
+                                        ?>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="contact_lastname">Nazwisko</label>
@@ -77,20 +89,38 @@
                                     <div class="form-group">
                                         <label class="control-label" for="contact_email_1">E-mail</label>
                                         <input type="text" name="contact_email_1" placeholder="Podaj e-mail" class="" value="">
+                                        <?php
+                                        if (isset($_SESSION['error_contact_email_1'])) {
+                                            echo '<div class="alert-danger clearfix mbt30 mtp30">'.$_SESSION['error_contact_email_1'].'</div>';
+                                            unset($_SESSION['error_contact_email_1']);
+                                        }
+                                        ?>
                                     </div>
 
 
                                     <div class="more more-emails-push push mbt30">
-                                        <span class="btn btn-primary btn-sm">Więcej numerów telefonu</span>
+                                        <span class="btn btn-primary btn-sm">Więcej maili</span>
                                     </div>
                                     <div class="more-emails more-hidden">
                                         <div class="form-group">
                                             <label class="control-label" for="contact_email_2">E-mail</label>
                                             <input type="text" name="contact_email_2" placeholder="Podaj e-mail" class="" value="">
+                                            <?php
+                                            if (isset($_SESSION['error_contact_email_2'])) {
+                                                echo '<div class="alert-danger clearfix mbt30 mtp30">'.$_SESSION['error_contact_email_2'].'</div>';
+                                                unset($_SESSION['error_contact_email_2']);
+                                            }
+                                            ?>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label" for="contact_email_3">E-mail</label>
                                             <input type="text" name="contact_email_3" placeholder="Podaj e-mail" class="" value="">
+                                            <?php
+                                            if (isset($_SESSION['error_contact_email_3'])) {
+                                                echo '<div class="alert-danger clearfix mbt30 mtp30">'.$_SESSION['error_contact_email_3'].'</div>';
+                                                unset($_SESSION['error_contact_email_3']);
+                                            }
+                                            ?>
                                         </div>
                                     </div>
 
