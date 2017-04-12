@@ -10,7 +10,7 @@
 
 
     $validation = true;
-    $user_id=$_SESSION['id'];
+    $user_id = $_SESSION['id'];
     $contact_firstname = $_POST['contact_firstname'];
     $contact_lastname = $_POST['contact_lastname'];
 
@@ -46,6 +46,27 @@
     }
 
 
+    $image = $_FILES['contact_photo']['tmp_name'];
+    if ((isset($image))) {
+        if (getimagesize($image) == false){
+            $_SESSION['error_contact_photo'] = "Niepoprawny typ pliku";
+        }
+        else{
+            $image_array = getimagesize($image);
+            $image_width = $image_array[0];
+            $image_height = $image_array[1];
+            if (($image_width > 1200) || ($image_height > 1200)){
+                $_SESSION['error_contact_photo'] = "Za duży plik";
+            }
+            else {
+                $image = addslashes($_FILES['contact_photo']['tmp_name']);
+                $image = file_get_contents($image);
+                $image = base64_encode($image);
+            }
+        }
+    }
+
+
     if ($validation == true){
 
         require_once "connect.php";
@@ -57,7 +78,7 @@
             exit();
         }
         else {
-            if ($connection->query("INSERT INTO contact VALUES (NULL, '$user_id', '$contact_firstname', '$contact_lastname' ,'$contact_email_1', '$contact_email_2', '$contact_email_3', '$contact_phone_1', '$contact_phone_2', '$contact_phone_3')")){
+            if ($connection->query("INSERT INTO contact VALUES (NULL, '$user_id', '$image', '$contact_firstname', '$contact_lastname' ,'$contact_email_1', '$contact_email_2', '$contact_email_3', '$contact_phone_1', '$contact_phone_2', '$contact_phone_3')")){
                 $_SESSION['success_add']="Dodano kontakt";
 
             }

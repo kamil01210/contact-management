@@ -4,19 +4,23 @@
 
 $(document).ready(function (){
 
-    $('.push-form').click(function() {
+    $('.push-form .btn').click(function() {
         $('.forms').toggleClass('form-slide');
     });
 
-    $('.more-phones-push').click(function() {
+    $('.more-phones-push .btn').click(function() {
         $('.more-phones').toggleClass('more-visibility more-hidden');
     });
 
-    $('.more-emails-push').click(function() {
+    $('.more-emails-push .btn').click(function() {
         $('.more-emails').toggleClass('more-visibility more-hidden');
     });
 
-    $('.more-address-push').click(function() {
+    $('.more-address-push .btn').click(function() {
         $('.more-address').toggleClass('more-visibility more-hidden');
+    });
+
+    $('.btn-more').click(function() {
+        $(this).find('.cross').toggleClass('cross-active');
     });
 });
