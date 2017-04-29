@@ -4,7 +4,7 @@
 
 $(document).ready(function (){
 
-    $('.push-form .btn').click(function() {
+    $('.push-form ').click(function() {
         $('.forms').toggleClass('form-slide');
     });
 
