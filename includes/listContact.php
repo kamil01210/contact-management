@@ -45,6 +45,7 @@
        
 html;
 
+            $i=1;
             while ($row = $result->fetch_assoc()) {
 				
 				$phones = "{$row["contact_phone_1"]}";
@@ -58,15 +59,15 @@ html;
 					$emails .= "<br/>{$row["contact_email_2"]}";
 				if ( !empty($row["contact_email_3"]) )
 					$emails .= "<br/>{$row["contact_email_3"]}";
-				
+
 				$avatar = "";
-				if (!empty($row["contact_photo"]))
+				if (!empty($row["contact_photo"]) && $row['contact_photo']!='Array')
 					$avatar = "<img style=\"max-width: 100px; max-height: 100px;\"".
 							  "src=\"data:image/jpeg;base64,".($row["contact_photo"])."\"/>";
 				
                 echo <<<html
         <tr>
-            <td>{$row["id"]}</td>
+            <td>{$i}</td>
             <td>{$avatar}</td>
             <td>{$row["contact_name"]}</td>
             <td>{$row["contact_lastname"]}</td>
@@ -82,6 +83,7 @@ html;
 			</td>
         </tr>
 html;
+            $i++;
             }
             echo "</table>";
         } else {
