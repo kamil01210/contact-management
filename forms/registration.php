@@ -10,7 +10,7 @@
     $validation = true;
 
     //sprawdzamy poprawność loginu
-    $registration_login = $_POST['registration_login'];
+    $registration_login = htmlspecialchars($_POST['registration_login']);
 
     if (strlen($registration_login)<4 || strlen($registration_login)>20) {
         $validation = false;
@@ -24,7 +24,7 @@
 
 
     //email
-    $registration_email = $_POST['registration_email'];
+    $registration_email = htmlspecialchars($_POST['registration_email']);
     $registration_email_sanitized = filter_var($registration_email, FILTER_SANITIZE_EMAIL);
 
     if (($registration_email!=$registration_email_sanitized) || (filter_var($registration_email_sanitized, FILTER_VALIDATE_EMAIL)==FALSE)){
@@ -86,7 +86,6 @@
             $validation = false;
             $_SESSION['error_registration_email'] = "Adres e-mail już istenieje";
         }
-
 
         $result = $connection->query("SELECT id FROM user WHERE login='$registration_login'");
 

@@ -23,4 +23,6 @@ $(document).ready(function (){
     $('.btn-more').click(function() {
         $(this).find('.cross').toggleClass('cross-active');
     });
+
+    $('#contact_address_line_2').mask('99-999');
 });

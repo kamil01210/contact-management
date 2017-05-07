@@ -69,6 +69,13 @@
         }
     }
 
+    $contact_profession = $_POST['contact_profession'];
+    $contact_address_line_1 = $_POST['contact_address_line_1'];
+    $contact_address_line_2 = $_POST['contact_address_line_2'];
+    $contact_address_line_3 = $_POST['contact_address_line_3'];
+
+
+
 
     if ($validation == true){
 
