@@ -27,19 +27,22 @@
 
             echo <<<html
      <table class="table table-striped">
-        <tr>
-            <th>ID</th>
-            <th>Avatar</th>
-            <th>Imię</th>
-            <th>Nazwisko</th>
-            <th>Email(e)</th>
-            <th>Telefon(y)</th>
-            <th>Zawód</th>
-            <th>Adres</th>
-            <th>Kod pocztowy</th>
-            <th>Miasto</th>
-            <th></th>
-        </tr>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Avatar</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Email(e)</th>
+                <th>Telefon(y)</th>
+                <th>Zawód</th>
+                <th>Adres</th>
+                <th>Kod pocztowy</th>
+                <th>Miasto</th>
+                <th></th>
+            </tr>
+        </thead>
+       
 html;
 
             while ($row = $result->fetch_assoc()) {
@@ -82,5 +85,5 @@ html;
             }
             echo "</table>";
         } else {
-            echo "<p class=\"alert-danger bg-danger\">Nie ma jeszcze żadnych kontaktów</p>";
+            echo '<p class="alert-danger bg-dange">Nie ma jeszcze żadnych kontaktów</p>';
         }

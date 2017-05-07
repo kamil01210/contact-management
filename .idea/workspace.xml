@@ -59,8 +59,13 @@
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/forms/login.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="164">
               <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+=======
+            <state relative-caret-position="117">
+              <caret line="59" column="13" lean-forward="true" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+>>>>>>> Stashed changes
               <folding>
                 <marker date="1494165122000" expanded="true" signature="1095:1130" ph="SELECT * FRO... user" />
               </folding>
@@ -422,17 +427,26 @@
       <workItem from="1492268120160" duration="543000" />
       <workItem from="1492351533735" duration="23000" />
       <workItem from="1492780773334" duration="624000" />
+<<<<<<< Updated upstream
       <workItem from="1493457548915" duration="65000" />
       <workItem from="1493465451664" duration="2758000" />
       <workItem from="1494008033313" duration="3640000" />
       <workItem from="1494163247701" duration="21000" />
       <workItem from="1494163398428" duration="639000" />
       <workItem from="1494167715495" duration="2890000" />
+=======
+      <workItem from="1493457548915" duration="3556000" />
+      <workItem from="1494150148932" duration="2881000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< Updated upstream
     <option name="totallyTimeSpent" value="66681000" />
+=======
+    <option name="totallyTimeSpent" value="63105000" />
+>>>>>>> Stashed changes
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -834,8 +848,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/listContact.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="323">
           <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+=======
+        <state relative-caret-position="117">
+          <caret line="59" column="13" lean-forward="true" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+>>>>>>> Stashed changes
           <folding>
             <marker date="1494170463916" expanded="true" signature="223:285" ph="DELETE FROM " />
             <marker date="1494170463916" expanded="true" signature="223:300" ph="DELETE FROM " />
