@@ -87,7 +87,6 @@
             $_SESSION['error_registration_email'] = "Adres e-mail już istenieje";
         }
 
-
         $result = @$connection->query("SELECT id FROM User WHERE login='$registration_login'");
 
         $how_many_logins = $result->num_rows;
@@ -101,7 +100,7 @@
         if ($validation == true){
             //poprawna walidacja
 
-            if ($connection->query("INSERT INTO user VALUES (NULL, '$registration_login', '$registration_password_hash', '$registration_email')")){
+            if ($connection->query("SET NAMES 'utf8'") && $connection->query("INSERT INTO user VALUES (NULL, '$registration_login', '$registration_password_hash', '$registration_email')")){
                 $_SESSION['success_registration']="Rejestracja przebiegła pomyślnie zaloguj się";
 
             }

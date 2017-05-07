@@ -47,7 +47,7 @@
 
 
     $image = $_FILES['contact_photo']['tmp_name'];
-    if ((isset($image))) {
+    if ($image != "") {
         if (getimagesize($image) == false){
             $_SESSION['error_contact_photo'] = "Niepoprawny typ pliku";
         }
@@ -66,6 +66,13 @@
         }
     }
 
+    $contact_profession = $_POST['contact_profession'];
+    $contact_address_line_1 = $_POST['contact_address_line_1'];
+    $contact_address_line_2 = $_POST['contact_address_line_2'];
+    $contact_address_line_3 = $_POST['contact_address_line_3'];
+
+
+
 
     if ($validation == true){
 
@@ -78,7 +85,9 @@
             exit();
         }
         else {
-            if ($connection->query("INSERT INTO contact VALUES (NULL, '$user_id', '$image', '$contact_firstname', '$contact_lastname' ,'$contact_email_1', '$contact_email_2', '$contact_email_3', '$contact_phone_1', '$contact_phone_2', '$contact_phone_3')")){
+//            $connection->query("SET NAMES 'utf8'");
+
+            if ($connection->query("SET NAMES 'utf8'") && $connection->query("INSERT INTO contact VALUES (NULL, '$user_id', '$image', '$contact_firstname', '$contact_lastname' ,'$contact_email_1', '$contact_email_2', '$contact_email_3', '$contact_phone_1', '$contact_phone_2', '$contact_phone_3', '$contact_profession', '$contact_address_line_1', '$contact_address_line_2', '$contact_address_line_3')")){
                 $_SESSION['success_add']="Dodano kontakt";
 
             }

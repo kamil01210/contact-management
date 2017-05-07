@@ -112,7 +112,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label required" for="contact_address_line_2">Kod pocztowy</label>
-                                        <input type="text" name="contact_address_line_2" placeholder="Podaj kod pocztowy" class="" value="">
+                                        <input type="text" id="contact_address_line_2" name="contact_address_line_2" placeholder="Podaj kod pocztowy" class="" value="" pattern="^[0-9]{2}-[0-9]{3}$">
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label required" for="contact_address_line_3">Miasto</label>
