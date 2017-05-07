@@ -35,7 +35,12 @@
         </div>
     </div>
 
-    <?php include_once 'addModal.php'?>
+    <?php
+		include_once('includes/listContact.php');
+	?>
+	
+	
+    <?php include_once('forms/addModal.php'); ?>
 
 </div>
 

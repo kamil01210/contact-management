@@ -1,3 +1,17 @@
+<?php
+
+	// show all php errors, warnings and notices
+	error_reporting(E_ALL);
+
+	// single database connection for entire page
+    require_once "includes/connect.php";
+    $connection = new mysqli($host, $db_user, $db_password, $db_name);
+    if ($connection->connect_errno!=0)
+        die("Error: " . $connection->connect_errno);
+		
+	$connection->set_charset("utf8");
+	
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>

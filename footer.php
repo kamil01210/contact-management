@@ -5,3 +5,8 @@
 <script src="js/bootstrap.js"></script>
 <script src="js/less.js"></script>
 <script src="js/script.js"></script>
+
+<?php
+	if (isset($connection))
+		$connection->close();
+?>

@@ -13,16 +13,14 @@
     }
 
 
-    require_once "connect.php";
-
-    $connection = @new mysqli($host, $db_user, $db_password, $db_name);
-
-    //@ oznacza, że w razie wystąpienia błędów, php nie poinformuje nas o nich
-
-    if ($connection->connect_errno!=0){
-        echo "Error". $connection->connect_errno;
-    }
-    else {
+	// single database connection for entire page
+    require_once "../includes/connect.php";
+    $connection = new mysqli($host, $db_user, $db_password, $db_name);
+    if ($connection->connect_errno!=0)
+        die("Error: " . $connection->connect_errno);
+		
+	$connection->set_charset("utf8");
+	
         function filtration($variable){
             $variable = htmlentities($variable , ENT_QUOTES, "UTF-8");
             //filtrujemy, konwertujemy na encję zabezpieczajac przed tak zwanym wstrzykiwaniem mysql, ENT_QUOTES nakazuje różnież zmianę apostrofów i cudzysłowiów
@@ -33,9 +31,8 @@
         $password = $_POST['password'];
 
         //$sql = "SELECT * FROM User WHERE login='$login' AND password ='$password'";
-
         if ($result = @$connection->query(
-            sprintf("SELECT * FROM User WHERE login='%s'", //sprintf pilnuje typu danych, %s wskazuje gdzie będziemy wkładać zmienne 's' oznacza typ zmiennej czyli string w tym przypadku
+            sprintf("SELECT * FROM user WHERE login='%s'", //sprintf pilnuje typu danych, %s wskazuje gdzie będziemy wkładać zmienne 's' oznacza typ zmiennej czyli string w tym przypadku
             mysqli_real_escape_string($connection, $login) // pierwszy argument
             ))){
 
@@ -54,7 +51,7 @@
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['user'] = $row['login'];
 
-//                echo $_SESSION['user'];
+                echo $_SESSION['user'];
 
                     unset($_SESSION['error']);
                     $result->free_result();
@@ -72,6 +69,6 @@
                 header('Location: ../index.php');
             }
         }
-        $connection->close();
-    }
+		
+    $connection->close();
 ?>

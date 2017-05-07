@@ -12,9 +12,9 @@
     //sprawdzamy poprawność loginu
     $registration_login = $_POST['registration_login'];
 
-    if (strlen($registration_login)<5 || strlen($registration_login)>20) {
+    if (strlen($registration_login)<4 || strlen($registration_login)>20) {
         $validation = false;
-        $_SESSION['error_registration_login'] = "Login musi posiadać od 5 do 20 znaków";
+        $_SESSION['error_registration_login'] = "Login musi posiadać od 4 do 20 znaków";
     }
     if (ctype_alnum($registration_login)==false){
         $validation = false;
@@ -37,9 +37,9 @@
     $registration_password1 = $_POST['registration_password1'];
     $registration_password2 = $_POST['registration_password2'];
 
-    if (strlen($registration_password1)<5 || strlen($registration_password1)>20) {
+    if (strlen($registration_password1)<4 || strlen($registration_password1)>20) {
         $validation = false;
-        $_SESSION['error_registration_password'] = "Hasło musi posiadać od 5 do 20 znaków";
+        $_SESSION['error_registration_password'] = "Hasło musi posiadać od 4 do 20 znaków";
     }
     if ($registration_password1 != $registration_password2) {
         $validation = false;
@@ -69,16 +69,16 @@
 //        $_SESSION['error_recaptcha'] = "Potwierdź, że nie jesteś botem";
 //    }
 
-    require_once "connect.php";
 
-    $connection = @new mysqli($host, $db_user, $db_password, $db_name);
-
-    if ($connection->connect_errno!=0){
-        echo "Error". $connection->connect_errno;
-        exit();
-    }
-    else {
-        $result = @$connection->query("SELECT id FROM User WHERE email='$registration_email'");
+	// single database connection for entire page
+    require_once "../includes/connect.php";
+    $connection = new mysqli($host, $db_user, $db_password, $db_name);
+    if ($connection->connect_errno!=0)
+        die("Error: " . $connection->connect_errno);
+		
+	$connection->set_charset("utf8");
+	
+        $result = $connection->query("SELECT id FROM user WHERE email='$registration_email'");
 
         $how_many_emails = $result->num_rows;
 
@@ -88,7 +88,7 @@
         }
 
 
-        $result = @$connection->query("SELECT id FROM User WHERE login='$registration_login'");
+        $result = $connection->query("SELECT id FROM user WHERE login='$registration_login'");
 
         $how_many_logins = $result->num_rows;
 
@@ -104,15 +104,12 @@
             if ($connection->query("INSERT INTO user VALUES (NULL, '$registration_login', '$registration_password_hash', '$registration_email')")){
                 $_SESSION['success_registration']="Rejestracja przebiegła pomyślnie zaloguj się";
 
-            }
-            else {
-                echo "Error". $connection->connect_errno;
-                exit();
+            } else {
+                die("Error". $connection->connect_errno);
             }
         }
 
-        $connection->close();
-    }
+    $connection->close();
 
 
 
