@@ -77,9 +77,9 @@ html;
             <td>{$row["contact_address_line_1"]}</td>
             <td>{$row["contact_address_line_2"]}</td>
             <td>{$row["contact_address_line_3"]}</td>
-            <td>
-				<a href="#" class="btn btn-xs btn-success">Edytuj</a>
-				<a href="?del={$row["id"]}" onclick="return confirm('Czy na pewno chcesz usunąć?');" class="btn btn-xs btn-danger">Usuń</a>
+            <td class="options">
+				<a href="#" class=""><span class="glyphicon glyphicon-pencil primary-color" aria-hidden="true"></span></a>
+				<a href="?del={$row["id"]}" onclick="return confirm('Czy na pewno chcesz usunąć?');"><span class="glyphicon glyphicon-remove red" aria-hidden="true"></span></a>
 			</td>
         </tr>
 html;

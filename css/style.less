@@ -103,6 +103,33 @@ body {
   padding-top: 30px;
 }
 
+.alert-danger, .alert-info {
+  padding: 10px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid @grey;
+}
+
+.noshadow {
+  .box-shadow(0, 0, 0);
+}
+
+.noborder {
+  border: none;
+}
+
+.noradius {
+  .radius(0);
+}
+
+.btn:focus, .btn:active, textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-    input:focus {
+  border-color: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  outline: none;
+}
+
 .cross {
   position: absolute;
   display: inline-block;
@@ -135,6 +162,7 @@ body {
 
 .form-container {
   width: 500px;
+  max-width: 100%;
   margin: 200px auto;
   overflow: hidden;
 
@@ -197,21 +225,6 @@ body {
   }
 }
 
-.border-bottom {
-  border-bottom: 1px solid @grey;
-}
-
-.noshadow {
-  .box-shadow(0, 0, 0);
-}
-
-.noborder {
-  border: none;
-}
-
-.noradius {
-  .radius(0);
-}
 
 .well {
   border: 1px solid @grey;
@@ -251,13 +264,6 @@ body {
   }
 }
 
-.btn:focus, .btn:active, textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-    input:focus {
-  border-color: none;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  outline: none;
-}
-
 .more-hidden {
   max-height: 0;
   overflow: hidden;
@@ -294,6 +300,31 @@ body {
   }
 }
 
-.alert-danger, .alert-info {
-  padding: 10px;
+
+.contacts-list {
+  .table {
+    td {
+      vertical-align: middle;
+    }
+
+    .options {
+      .glyphicon {
+        font-size: 18px;
+        padding: 10px;
+
+        &.primary-color{
+          color: @primary-color;
+        }
+        &.red {
+          color: #c7254e;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px){
+  .table-responsive {
+    border: none;
+  }
 }

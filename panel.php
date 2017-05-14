@@ -42,9 +42,11 @@
         </div>
     </div>
 
+    <div class="table-responsive contacts-list">
     <?php
 		include_once('includes/listContact.php');
 	?>
+    </div>
 	
 	
     <?php include_once('forms/addModal.php'); ?>
