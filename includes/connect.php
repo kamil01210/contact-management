@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: kuaku
+ * User: Klaczek Kamil
  * Date: 02.04.2017
  * Time: 18:00
  */

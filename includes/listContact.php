@@ -62,13 +62,12 @@ html;
 
 				$avatar = "";
 				if (!empty($row["contact_photo"]) && $row['contact_photo']!='Array')
-					$avatar = "<img style=\"max-width: 100px; max-height: 100px;\"".
-							  "src=\"data:image/jpeg;base64,".($row["contact_photo"])."\"/>";
+					$avatar = "<img src=\"data:image/jpeg;base64,".($row["contact_photo"])."\"/>";
 				
                 echo <<<html
         <tr>
             <td>{$i}</td>
-            <td>{$avatar}</td>
+            <td class="text-center photo">{$avatar}</td>
             <td>{$row["contact_name"]}</td>
             <td>{$row["contact_lastname"]}</td>
             <td>{$emails}</td>

@@ -123,6 +123,11 @@ body {
   .radius(0);
 }
 
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
 .btn:focus, .btn:active, textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-    input:focus {
   border-color: none;
   box-shadow: none;
@@ -320,10 +325,15 @@ body {
         }
       }
     }
+
+    .photo {
+      max-width: 100px;
+      max-height: 100px;
+    }
   }
 }
 
-@media screen and (max-width: 767px){
+@media (max-width: 767px){
   .table-responsive {
     border: none;
   }
