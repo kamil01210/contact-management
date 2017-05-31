@@ -15,6 +15,10 @@
         echo '<div class="alert-info clearfix mbt30 mtp30">'.$_SESSION['success_add'].'</div>';
         unset($_SESSION['success_add']);
     }
+    if (isset($_SESSION['success_edit'])) {
+        echo '<div class="alert-info clearfix mbt30 mtp30">'.$_SESSION['success_edit'].'</div>';
+        unset($_SESSION['success_edit']);
+    }
     ?>
     <div class="row">
         <div class="col-md-12 mtp40">

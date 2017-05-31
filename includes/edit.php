@@ -7,9 +7,9 @@
  */
         if (isset($_GET["edit"]) ) {
 
-            $user_id = $_GET["edit"];
-
-            $result = $connection->query("SELECT * FROM contact WHERE id_user='" . ($user_id + 0) . "'");
+            $edit_user_id = $_GET["edit"];
+            $_SESSION['edit_user_id'] = $edit_user_id;
+            $result = $connection->query("SELECT * FROM contact WHERE id='" . ($edit_user_id + 0) . "'");
         }
 
         if ($result->num_rows > 0) {
@@ -20,6 +20,8 @@
             $avatar = "";
             if (!empty($row["contact_photo"]) && $row['contact_photo']!='Array')
                 $_SESSION['avatar'] = "<img src=\"data:image/jpeg;base64,".($row["contact_photo"])."\"/>";
+            else
+                $_SESSION['avatar'] = null;
 
             $_SESSION['contact_name'] = $row["contact_name"];
             $_SESSION['contact_lastname'] = $row["contact_lastname"];

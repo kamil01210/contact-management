@@ -11,16 +11,16 @@
 <body>
 <div class="container">
     <?php
-    if (isset($_SESSION['success_add'])) {
-        echo '<div class="alert-info clearfix mbt30 mtp30">'.$_SESSION['success_add'].'</div>';
-        unset($_SESSION['success_add']);
+    if (isset($_SESSION['success_edit'])) {
+        echo '<div class="alert-info clearfix mbt30 mtp30">'.$_SESSION['success_edit'].'</div>';
+        unset($_SESSION['success_edit']);
     }
     ?>
     <div class="row">
         <div class="col-md-12 mtp40">
-            <button type="button" class="btn btn-primary pull-left" data-toggle="modal" data-target="#add_contact">
-                Dodaj kontakt
-            </button>
+            <a class="btn btn-primary pull-left" href="panel.php">
+                Wróć
+            </a>
             <a class=" btn btn-primary pull-right clearfix" href="forms/logout.php">Wyloguj</a>
         </div>
     </div>
@@ -34,10 +34,12 @@
                 <h2 class="border-bottom">Edytuj kontakt</h2>
 
 
-                <form name="contact_contact" method="post" class="clearfix" action="forms/addContact.php" enctype="multipart/form-data">
+                <form name="contact_contact" method="post" class="clearfix" action="forms/edit.php" enctype="multipart/form-data">
+                    <input hidden name="edit_user_id" value="<?php echo $_SESSION["edit_user_id"]?>"/>
                     <div class="form-group">
                         <label class="control-label" for="contact_photo">Zdjęcie kontaktu</label>
                         <input class="pbt10" type="file" name="contact_photo" value="">
+
                         <?php echo $_SESSION["avatar"]?>
                     </div>
                     <div class="form-group">
@@ -106,7 +108,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label required" for="contact_address_line_2">Kod pocztowy</label>
-                            <input type="text" id="contact_address_line_2" name="contact_address_line_2" placeholder="Podaj kod pocztowy" class="" value="<?php echo $_SESSION["contact_address_line_3"]?>"" pattern="^[0-9]{2}-[0-9]{3}$">
+                            <input type="text" id="contact_address_line_2" name="contact_address_line_2" placeholder="Podaj kod pocztowy" class="" value="<?php echo $_SESSION["contact_address_line_2"]?>"" pattern="^[0-9]{2}-[0-9]{3}$">
                         </div>
                         <div class="form-group">
                             <label class="control-label required" for="contact_address_line_3">Miasto</label>
