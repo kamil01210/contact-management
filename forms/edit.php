@@ -27,16 +27,16 @@
         return $email;
     }
 
-    $contact_email_1 = htmlspecialchars($_POST['contact_email_1']);
-    $contact_email_2 = htmlspecialchars($_POST['contact_email_2']);
-    $contact_email_3 = htmlspecialchars($_POST['contact_email_3']);
-    $contact_phone_1 = htmlspecialchars($_POST['contact_phone_1']);
-    $contact_phone_2 = htmlspecialchars($_POST['contact_phone_2']);
-    $contact_phone_3 = htmlspecialchars($_POST['contact_phone_3']);
-    $contact_profession = htmlspecialchars($_POST['contact_profession']);
-    $contact_address_line_1 = htmlspecialchars($_POST['contact_address_line_1']);
-    $contact_address_line_2 = htmlspecialchars($_POST['contact_address_line_2']);
-    $contact_address_line_3 = htmlspecialchars($_POST['contact_address_line_3']);
+    $contact_email_1 = mysqli_real_escape_string($_POST['contact_email_1']);
+    $contact_email_2 = mysqli_real_escape_string($_POST['contact_email_2']);
+    $contact_email_3 = mysqli_real_escape_string($_POST['contact_email_3']);
+    $contact_phone_1 = mysqli_real_escape_string($_POST['contact_phone_1']);
+    $contact_phone_2 = mysqli_real_escape_string($_POST['contact_phone_2']);
+    $contact_phone_3 = mysqli_real_escape_string($_POST['contact_phone_3']);
+    $contact_profession = mysqli_real_escape_string($_POST['contact_profession']);
+    $contact_address_line_1 = mysqli_real_escape_string($_POST['contact_address_line_1']);
+    $contact_address_line_2 = mysqli_real_escape_string($_POST['contact_address_line_2']);
+    $contact_address_line_3 = mysqli_real_escape_string($_POST['contact_address_line_3']);
 
 
     if ($contact_email_1!=sanitize($contact_email_1)){
@@ -51,7 +51,6 @@
         $validation = false;
         $_SESSION['error_contact_email_2'] = "Niepoprawny pierwszy adres e-mail";
     }
-
 
     $image = $_FILES['contact_photo'];
     if ((isset($image) && !empty($image) && !empty($image['tmp_name']))) {
@@ -72,13 +71,10 @@
         }
     }
 
-    $contact_profession = $_POST['contact_profession'];
-    $contact_address_line_1 = $_POST['contact_address_line_1'];
-    $contact_address_line_2 = $_POST['contact_address_line_2'];
-    $contact_address_line_3 = $_POST['contact_address_line_3'];
-
-
-
+    $contact_profession = mysqli_real_escape_string($_POST['contact_profession']);
+    $contact_address_line_1 = mysqli_real_escape_string($_POST['contact_address_line_1']);
+    $contact_address_line_2 = mysqli_real_escape_string($_POST['contact_address_line_2']);
+    $contact_address_line_3 = mysqli_real_escape_string($_POST['contact_address_line_3']);
 
     if ($validation == true){
 
@@ -88,18 +84,31 @@
 			die("Error: " . $connection->error);
 		
 		$connection->set_charset("utf8");
-		if ($photo_validation == true)
-            $insert = $connection->query("UPDATE contact SET contact_photo='$image', contact_name='$contact_firstname', contact_lastname='$contact_lastname', contact_email_1='$contact_email_1', contact_email_2='$contact_email_2', contact_email_3='$contact_email_3', contact_phone_1='$contact_phone_1', contact_phone_2='$contact_phone_2', contact_phone_3='$contact_phone_3', contact_profession='contact_profession', contact_address_line_1='$contact_address_line_1', contact_address_line_2='$contact_address_line_2', contact_address_line_3='$contact_address_line_3'   WHERE id_user='".($user_id + 0)."' AND id='".($edit_user_id + 0)."'");
-		else
-            $insert = $connection->query("UPDATE contact SET contact_name='$contact_firstname', contact_lastname='$contact_lastname', contact_email_1='$contact_email_1', contact_email_2='$contact_email_2', contact_email_3='$contact_email_3', contact_phone_1='$contact_phone_1', contact_phone_2='$contact_phone_2', contact_phone_3='$contact_phone_3', contact_profession='contact_profession', contact_address_line_1='$contact_address_line_1', contact_address_line_2='$contact_address_line_2', contact_address_line_3='$contact_address_line_3'   WHERE id_user='".($user_id + 0)."' AND id='".($edit_user_id + 0)."'");
+		if ($photo_validation == true) {
+            $insert = $connection->query("UPDATE `contact` SET `contact_photo`='{$image}'," .
+                "`contact_name`='{$contact_firstname}', `contact_lastname`='{$contact_lastname}'," .
+                "`contact_email_1`='{$contact_email_1}', `contact_email_2`='{$contact_email_2}'," .
+                "`contact_email_3`='{$contact_email_3}', `contact_phone_1`='{$contact_phone_1}'," .
+                "`contact_phone_2`='{$contact_phone_2}', `contact_phone_3`='{$contact_phone_3}'," .
+                "`contact_profession`='{$contact_profession}', `contact_address_line_1`='{$contact_address_line_1}'," .
+                "`contact_address_line_2`='{$contact_address_line_2}', `contact_address_line_3`='{$contact_address_line_3}'," .
+                " WHERE `id_user`='" . ($user_id + 0) . "' AND `id`='" . ($edit_user_id + 0) . "'");
+        } else {
+            $insert = $connection->query("UPDATE `contact` SET `contact_name`='{$contact_firstname}',".
+                "`contact_lastname`='{$contact_lastname}', `contact_email_1`='{$contact_email_1}',".
+                "`contact_email_2`='{$contact_email_2}', `contact_email_3`='{$contact_email_3}',".
+                "`contact_phone_1`='{$contact_phone_1}', `contact_phone_2`='${contact_phone_2}',".
+                "`contact_phone_3`='{$contact_phone_3}', `contact_profession`='{$contact_profession}',".
+                "`contact_address_line_1`='{$contact_address_line_1}', `contact_address_line_2`='{$contact_address_line_2}',".
+                "`contact_address_line_3`='{$contact_address_line_3}'".
+                " WHERE `id_user`='" . ($user_id + 0) . "' AND `id`='" . ($edit_user_id + 0) . "'");
+        }
 
-
-
-            if ($insert) {
-                $_SESSION['success_edit'] = "Edytowano kontakt";
-            } else {
-                die("Error: " . $connection->error);
-            }
+        if ($insert) {
+            $_SESSION['success_edit'] = "Edytowano kontakt";
+        } else {
+            die("Error: " . $connection->error);
+        }
     }
 
     header('Location: ../panel.php')
