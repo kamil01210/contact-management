@@ -16,8 +16,8 @@
         unset($_SESSION['success_edit']);
     }
     ?>
-    <div class="row">
-        <div class="col-md-12 mtp40">
+    <div class="row mbt40 mtp40">
+        <div class="col-md-12">
             <a class="btn btn-primary pull-left" href="panel.php">
                 Wróć
             </a>
@@ -37,10 +37,18 @@
                 <form name="contact_contact" method="post" class="clearfix" action="forms/edit.php" enctype="multipart/form-data">
                     <input hidden name="edit_user_id" value="<?php echo $_SESSION["edit_user_id"]?>"/>
                     <div class="form-group">
-                        <label class="control-label" for="contact_photo">Zdjęcie kontaktu</label>
-                        <input class="pbt10" type="file" name="contact_photo" value="">
+                        <div class="row">
+                            <div class="col-sm-6 text-center">
+                                <?php echo $_SESSION["avatar"]?>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="contact_photo">Zdjęcie kontaktu</label>
+                                    <input class="pbt10" type="file" name="contact_photo" value="">
+                                </div>
 
-                        <?php echo $_SESSION["avatar"]?>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label required" for="contact_firstname">Imię</label>
