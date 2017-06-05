@@ -13,7 +13,7 @@
             // LIMIT 1 - usuwanie tylko jednego
             if ($connection->affected_rows) {
                 echo "<br/><br/>";
-                echo "<p class='alert alert-success'>Kontakt został usunięty</p>";
+                echo "<p class='alert-success clearfix mbt30 mtp30'>Kontakt został usunięty</p>";
             }
         }
 

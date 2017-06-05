@@ -102,13 +102,13 @@
                            unset($_SESSION['error_registration_regulations']);
                        }
                        ?>
-<!--                       <div class="g-recaptcha" data-sitekey="6LfPRBsUAAAAAIigA21Ru5Oi4qz9vI-gE8aK3PAe"></div>-->
-<!--                       --><?php
-//                       if (isset($_SESSION['error_recaptcha'])) {
-//                           echo '<div class="alert-danger clearfix mbt30 mtp30">'.$_SESSION['error_recaptcha'].'</div>';
-//                           unset($_SESSION['error_recaptcha']);
-//                       }
-//                       ?>
+                       <div class="g-recaptcha" data-sitekey="6LfPRBsUAAAAAIigA21Ru5Oi4qz9vI-gE8aK3PAe"></div>
+                       <?php
+                       if (isset($_SESSION['error_recaptcha'])) {
+                           echo '<div class="alert-danger clearfix mbt30 mtp30">'.$_SESSION['error_recaptcha'].'</div>';
+                           unset($_SESSION['error_recaptcha']);
+                       }
+                       ?>
 
 
 

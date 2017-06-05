@@ -85,13 +85,14 @@
 		
 		$connection->set_charset("utf8");
 		if ($photo_validation == true) {
-            $insert = $connection->query("UPDATE `contact` SET `contact_photo`='{$image}'," .
-                "`contact_name`='{$contact_firstname}', `contact_lastname`='{$contact_lastname}'," .
-                "`contact_email_1`='{$contact_email_1}', `contact_email_2`='{$contact_email_2}'," .
-                "`contact_email_3`='{$contact_email_3}', `contact_phone_1`='{$contact_phone_1}'," .
-                "`contact_phone_2`='{$contact_phone_2}', `contact_phone_3`='{$contact_phone_3}'," .
-                "`contact_profession`='{$contact_profession}', `contact_address_line_1`='{$contact_address_line_1}'," .
-                "`contact_address_line_2`='{$contact_address_line_2}', `contact_address_line_3`='{$contact_address_line_3}'," .
+            $insert = $connection->query("UPDATE `contact` SET `contact_photo`='{$image}',".
+                "`contact_name`='{$contact_firstname}',".
+                "`contact_lastname`='{$contact_lastname}', `contact_email_1`='{$contact_email_1}',".
+                "`contact_email_2`='{$contact_email_2}', `contact_email_3`='{$contact_email_3}',".
+                "`contact_phone_1`='{$contact_phone_1}', `contact_phone_2`='${contact_phone_2}',".
+                "`contact_phone_3`='{$contact_phone_3}', `contact_profession`='{$contact_profession}',".
+                "`contact_address_line_1`='{$contact_address_line_1}', `contact_address_line_2`='{$contact_address_line_2}',".
+                "`contact_address_line_3`='{$contact_address_line_3}'".
                 " WHERE `id_user`='" . ($user_id + 0) . "' AND `id`='" . ($edit_user_id + 0) . "'");
         } else {
             $insert = $connection->query("UPDATE `contact` SET `contact_name`='{$contact_firstname}',".
