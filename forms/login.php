@@ -51,7 +51,7 @@
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['user'] = $row['login'];
 
-                echo $_SESSION['user'];
+                    echo $_SESSION['user'];
 
                     unset($_SESSION['error']);
                     $result->free_result();

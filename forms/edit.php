@@ -62,7 +62,7 @@
             $image_width = $image_array[0];
             $image_height = $image_array[1];
             if (($image_width > 1200) || ($image_height > 1200)){
-                $_SESSION['error_contact_photo'] = "Za duży plik";
+                $_SESSION['error_edit_photo'] = "Za duży plik nowego avatara";
             }
             else {
                 $image = base64_encode( file_get_contents( $_FILES['contact_photo']['tmp_name'] ) );

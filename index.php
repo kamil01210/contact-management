@@ -16,7 +16,6 @@
                <div class="form-body well noradius noshadow">
                    <h2 class="border-bottom">Jestem użytkownikiem</h2>
 
-
                    <?php
                    if (isset($_SESSION['error'])) {
                        echo '<div class="alert-danger clearfix mbt30 mtp30">'.$_SESSION['error'].'</div>';
@@ -24,16 +23,12 @@
                    }
                    ?>
 
-
-
-
                    <?php
                    if (isset($_SESSION['success_registration'])) {
                        echo '<div class="alert-info clearfix mbt30 mtp30">'.$_SESSION['success_registration'].'</div>';
                        unset($_SESSION['success_registration']);
                    }
                    ?>
-
 
                    <form name="login" id="login" method="post" class="clearfix" action="forms/login.php">
                        <div class="form-group">
@@ -102,7 +97,7 @@
                            unset($_SESSION['error_registration_regulations']);
                        }
                        ?>
-                       <div class="g-recaptcha" data-sitekey="6LfPRBsUAAAAAIigA21Ru5Oi4qz9vI-gE8aK3PAe"></div>
+                       <div class="g-recaptcha mbt30" data-sitekey="6LfPRBsUAAAAAIigA21Ru5Oi4qz9vI-gE8aK3PAe"></div>
                        <?php
                        if (isset($_SESSION['error_recaptcha'])) {
                            echo '<div class="alert-danger clearfix mbt30 mtp30">'.$_SESSION['error_recaptcha'].'</div>';
@@ -110,17 +105,11 @@
                        }
                        ?>
 
-
-
                        <button type="submit" class="btn btn-primary pull-right">Stwórz konto</button>
                        <div class="btn btn-link push-form pull-left nopadding">Mam już konto</div>
-
                    </form>
                </div>
            </div>
        </div>
     </div>
-    <?php include_once 'footer.php'?>
-
-</body>
-</html>
+<?php include_once 'footer.php'?>
