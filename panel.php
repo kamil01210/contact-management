@@ -23,6 +23,10 @@
                 echo '<div class="alert-danger clearfix mbt30 mtp30">'.$_SESSION['error_edit_photo'].'</div>';
                 unset($_SESSION['error_edit_photo']);
             }
+            if (isset($_SESSION['error_contact_photo'])) {
+                echo '<div class="alert-danger clearfix mbt30 mtp30">'.$_SESSION['error_contact_photo'].'</div>';
+                unset($_SESSION['error_contact_photo']);
+            }
         ?>
         <div class="row">
             <div class="col-md-12 mtp40">

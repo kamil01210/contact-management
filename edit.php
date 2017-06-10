@@ -10,12 +10,6 @@
 ?>
 <body>
 <div class="container">
-    <?php
-    if (isset($_SESSION['success_edit'])) {
-        echo '<div class="alert-info clearfix mbt30 mtp30">'.$_SESSION['success_edit'].'</div>';
-        unset($_SESSION['success_edit']);
-    }
-    ?>
     <div class="row mbt40 mtp40">
         <div class="col-md-12">
             <a class="btn btn-primary pull-left" href="panel.php">

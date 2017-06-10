@@ -15,12 +15,6 @@
                                 <div class="form-group">
                                     <label class="control-label" for="contact_photo">Zdjęcie kontaktu</label>
                                     <input class="pbt10" type="file" name="contact_photo" value="">
-                                    <?php
-                                    if (isset($_SESSION['error_contact_photo'])) {
-                                        echo '<div class="alert-danger clearfix mbt30 mtp30">'.$_SESSION['error_contact_photo'].'</div>';
-                                        unset($_SESSION['error_contact_photo']);
-                                    }
-                                    ?>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label required" for="contact_firstname">Imię</label>

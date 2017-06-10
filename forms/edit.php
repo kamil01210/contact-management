@@ -55,7 +55,7 @@
     $image = $_FILES['contact_photo'];
     if ((isset($image) && !empty($image) && !empty($image['tmp_name']))) {
         if (getimagesize($image['tmp_name']) == false){
-            $_SESSION['error_contact_photo'] = "Niepoprawny typ pliku";
+            $_SESSION['error_edit_photo'] = "Niepoprawny typ pliku";
         }
         else{
             $image_array = getimagesize($image['tmp_name']);
